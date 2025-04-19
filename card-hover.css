@@ -1,0 +1,167 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito:wght@200;300;400;500&display=swap');
+
+/* 3D Card Hover Effect Styles */
+.work-item {
+    width: 100%;
+    height: 380px;
+    background-size: cover;
+    background-position: center;
+    border-radius: 12px !important;
+    position: relative;
+    cursor: pointer;
+    border: 1px solid rgba(255, 255, 255, 0.2);
+    transform-style: preserve-3d !important;
+    transition: all 0.6s cubic-bezier(0.23, 1, 0.32, 1) !important;
+    grid-column: span 3 !important;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.15) !important;
+    overflow: hidden;
+}
+
+.work-item h3 {
+    color: white;
+    width: 100%;
+    position: absolute;
+    bottom: 20px;
+    text-align: center;
+    font-size: 26px;
+    transition: 0.5s;
+    padding: 0 15px;
+    font-family: 'Nunito', sans-serif;
+    font-weight: 600;
+    opacity: 0.9;
+    transform: translateY(10px);
+}
+
+.work-item .work-category {
+    color: var(--primary-color);
+    width: 100%;
+    position: absolute;
+    bottom: 60px;
+    text-align: center;
+    font-size: 16px;
+    transition: 0.5s;
+    padding: 0 15px;
+    font-family: 'Nunito', sans-serif;
+    letter-spacing: 1px;
+    opacity: 0.9;
+    transform: translateY(10px);
+}
+
+.hover-image {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translateX(-50%) translateY(-50%);
+    opacity: 0;
+    width: 90%; /* Increased for bigger images */
+    height: 90%; /* Increased for bigger images */
+    background-position: center;
+    background-size: contain;
+    background-repeat: no-repeat;
+    transition: all 0.7s cubic-bezier(0.23, 1, 0.32, 1);
+    filter: drop-shadow(0 15px 25px rgba(0, 0, 0, 0.6));
+    transform-origin: center center;
+}
+
+.work-item:hover {
+    background-image: linear-gradient(rgba(0, 0, 0, 0.85), rgba(0, 0, 0, 0.85)), var(--original-bg) !important;
+    transform: perspective(1200px) rotateY(5deg) scale(1.03) !important;
+    box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4) !important;
+    border-color: rgba(255, 255, 255, 0.4) !important;
+}
+
+.work-item:hover .hover-image {
+    top: 30%;
+    opacity: 1;
+    transform: translateX(-50%) translateY(-50%) scale(1.15);
+    filter: drop-shadow(0 20px 30px rgba(0, 0, 0, 0.7));
+}
+
+.work-item:hover h3 {
+    font-size: 30px;
+    text-shadow: 0px 0px 10px white,
+                 0px 0px 20px white;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.work-item:hover .work-category {
+    text-shadow: 0px 0px 10px var(--primary-color),
+                 0px 0px 20px var(--primary-color);
+    opacity: 1;
+    transform: translateY(0);
+}
+
+/* Adjust the works grid for better 3D card display */
+.works-grid {
+    display: grid !important;
+    grid-template-columns: repeat(12, 1fr) !important;
+    gap: 3rem !important;
+    margin-top: 4rem !important;
+    max-width: 1400px !important;
+    margin-left: auto !important;
+    margin-right: auto !important;
+    padding: 0 3rem !important;
+}
+
+.works-section {
+    padding: 6rem 2rem !important;
+    background: var(--background-dark) !important;
+}
+
+@media (max-width: 1200px) {
+    .works-grid {
+        grid-template-columns: repeat(9, 1fr) !important;
+        gap: 2rem !important;
+    }
+    .work-item {
+        grid-column: span 3 !important;
+        height: 350px;
+    }
+}
+
+@media (max-width: 992px) {
+    .works-grid {
+        grid-template-columns: repeat(6, 1fr) !important;
+    }
+    .work-item {
+        grid-column: span 3 !important;
+        height: 320px;
+    }
+    .work-item h3 {
+        font-size: 22px;
+    }
+}
+
+@media (max-width: 768px) {
+    .works-grid {
+        grid-template-columns: repeat(4, 1fr) !important;
+        gap: 1.5rem !important;
+    }
+    .work-item {
+        grid-column: span 4 !important;
+        height: 300px;
+    }
+    .works-section {
+        padding: 4rem 1.5rem !important;
+    }
+}
+
+@media (max-width: 480px) {
+    .works-grid {
+        grid-template-columns: repeat(2, 1fr) !important;
+        gap: 1.25rem !important;
+    }
+    .work-item {
+        grid-column: span 2 !important;
+        height: 280px;
+    }
+    .work-item h3 {
+        font-size: 20px;
+        bottom: 15px;
+    }
+    .work-item .work-category {
+        font-size: 14px;
+        bottom: 45px;
+    }
+}
